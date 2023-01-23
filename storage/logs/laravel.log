@@ -19313,3 +19313,38 @@ Stack trace:
 #76 /home/walieldin-nctr/Desktop/blood_banck-wali/server.php(21): require_once('...')
 #77 {main}
 "} 
+[2023-01-23 14:12:56] local.INFO: array (
+  'notes' => 'ssqqsq',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:13:41] local.INFO: array (
+  'notes' => 'wdwwddwdw',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:13:59] local.INFO: array (
+  'notes' => 'qsssws',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:14:36] local.INFO: array (
+  'notes' => 'dwdwdw',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:14:48] local.INFO: array (
+  'notes' => 'dwdwdw',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:15:18] local.INFO: array (
+  'notes' => 'dwdwdw',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  
+[2023-01-23 14:15:23] local.INFO: array (
+  'notes' => 'dwdwdw',
+  '_token' => '1WCon518YadjR0JecDversKpxrdJYca7wVk6ZvT6',
+  'donation_id' => '29',
+)  

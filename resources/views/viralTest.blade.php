@@ -150,18 +150,18 @@
 
                     <form method="post" action="{{ route('viralTest.store') }}">
 
-                        @foreach ($diseases as $disease)
-                            <div class="row mt-2">
-                                <label class="form-label col-lg-3">{{ $disease->name }}</label>
-                                <div class="col-lg-9">
-                                    <select class="form-control select2-search-disable " dir="rtl" name="result[]"
-                                        id="{{ $disease->name }}" style="width: 100%">
-                                        <option value=""></option>
-                                        <option value="{{ $disease->name }}">yes</option>
-                                    </select>
-                                </div>
+                        <div class="row mt-2">
+                            <label class="form-label col-lg-3">الأمراض</label>
+                            <div class="col-lg-9">
+                                <select class="select2 form-control select2-multiple" name="result[]" dir="rtl"
+                                    multiple="multiple" data-placeholder="حدد" style="width: 100%">
+                                    @foreach ($diseases as $disease)
+                                        <option>{{$disease->name}}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
-                        @endforeach
+                        </div>
 
                         <div class="row mt-2">
                             <label class="form-label col-lg-3">ملاحظات</label>

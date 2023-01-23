@@ -33,7 +33,7 @@ class ViralTestRequest extends FormRequest
                 return !$this->request->has('donation_id');
             })],
 
-            'result' => ['required', 'array'],
+            'result' => ['nullable', 'array'],
             'notes' => ['nullable', 'string']
         ];
     }

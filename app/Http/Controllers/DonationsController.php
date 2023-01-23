@@ -18,8 +18,7 @@ class DonationsController extends Controller
      */
     public function index()
     {
-        $donations = Donation::with(['person', 'order'])->latest('created_at')->get();
-        // dd($donations);
+        $donations = Donation::with(['person', 'order'])->latest()->get();
         
         $test = ['bloodTest', 'doctorTest', 'viralTest',];
 
