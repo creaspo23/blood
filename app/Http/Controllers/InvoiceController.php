@@ -28,7 +28,7 @@ class InvoiceController extends Controller
 
     public function viralDiseases()
     {
-        $viralDiseases = ViralTest::pluck('result');
+        $viralDiseases = ViralTest::where('result', '!=', null)->pluck('result');
         $HCV = 0;
         $HBV = 0;
         $HIV = 0;
@@ -87,12 +87,12 @@ class InvoiceController extends Controller
 
     public function donersWithDraw()
     {
-        $viralDiseases = ViralTest::pluck('result');
+        $viralDiseases = ViralTest::where('result', '!=', null)->pluck('result');
+
         $HCV = 0;
         $HBV = 0;
         $HIV = 0;
         $SYPHILIS = 0;
-        $list = [];
 
         foreach ($viralDiseases as $value) {
             $vals = json_decode($value);
@@ -119,7 +119,49 @@ class InvoiceController extends Controller
 
     public function ExclusionFromTheDoctor()
     {
-        return view('invoices.exclusion-from-the-doctor');
+        $permanentTreatments = 0;
+        $chronicDiseases = 0;
+        $HHB = 0;
+        $LHB = 0;
+        $highBlood = 0;
+        $lowBlood = 0;
+        $others = 0;
+        $usesAntibiotics = 0;
+        $lowWeight = 0;
+        $lessThan18 = 0;
+        $ToothExtraction = 0;
+        $doctorTests = DoctorTest::where('others', '!=', null)->pluck('others');
+        $count = DoctorTest::where('others', '=', null)->count();
+        foreach ($doctorTests as $doctorTest) {
+            $vals = json_decode($doctorTest);
+            dd($vals);
+            foreach ($vals as $val) {
+                if ($val == 'علاجات مستديمه') {
+                    $permanentTreatments++;
+                } elseif ($val == 'امراض مزمنه') {
+                    $chronicDiseases++;
+                } elseif ($val == 'هيمقلوبين مرتفع') {
+                    $HHB++;
+                } elseif ($val == 'هيمقلوبين منخفض') {
+                    $LHB++;
+                } elseif ($val == 'ضغط دم مرتفع') {
+                    $highBlood++;
+                } elseif ($val == 'ضغط دم منخفض') {
+                    $lowBlood++;
+                } elseif ($val == 'يستعمل مضادي حيوي') {
+                    $usesAntibiotics++;
+                } elseif ($val == 'قليل الوزن') {
+                    $lowWeight++;
+                } elseif ($val == 'العمر اقل من 18') {
+                    $lessThan18++;
+                } elseif ($val == 'خلع ضرس') {
+                    $ToothExtraction++;
+                } elseif ($val == 'اسباب اخري') {
+                    $others++;
+                }
+            }
+        }
+        return view('invoices.exclusion-from-the-doctor', compact('count', 'highBlood', 'lowBlood', 'ToothExtraction', 'lowWeight', 'permanentTreatments', 'chronicDiseases', 'HHB', 'LHB', 'others', 'lessThan18', 'usesAntibiotics'));
     }
 
     public function polcythemiasrReport()
@@ -128,12 +170,12 @@ class InvoiceController extends Controller
         $economyOut = Polycythemia::where('type', 'تامين')->count();
         $economyInBYMonth = Polycythemia::where('type', 'اقتصادي')->whereMonth('created_at', now()->month)->count();
         $economyOutBYMonth = Polycythemia::where('type', 'تامين')->whereMonth('created_at', now()->month)->count();
-        return view('invoices.polcythemias-report', compact('economyIn', 'economyOut','economyInBYMonth','economyOutBYMonth'));
+        return view('invoices.polcythemias-report', compact('economyIn', 'economyOut', 'economyInBYMonth', 'economyOutBYMonth'));
     }
 
     public function BloodDischarged()
     {
-        
+
         return view('invoices.BloodDischarged');
     }
 }

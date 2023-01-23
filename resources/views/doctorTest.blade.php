@@ -140,8 +140,18 @@
                                     <option>ضغط مزمن</option>
                                     <option>سكري</option>
                                     <option>علاقات جنسية متطرفة</option>
-                                    <option >علاجات مستديمه</option>
+                                    <option>علاجات مستديمه</option>
                                     <option>امراض مزمنه</option>
+                                    <option>هيمقلوبين مرتفع</option>
+                                    <option>هيمقلوبين منخفض</option>
+                                    <option>ضغط دم مرتفع</option>
+                                    <option>ضغط دم منخفض</option>
+                                    <option>اسباب اخري</option>
+                                    <option>يستعمل مضادي حيوي </option>
+                                    <option>قليل الوزن </option>
+                                    <option>العمر اقل من 18 </option>
+                                    <option>خلع ضرس</option>
+
                                 </select>
                             </div>
                         </div>

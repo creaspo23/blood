@@ -250,14 +250,14 @@
                     <tbody>
                         <tr>
                             <td>المجموع</td>
-                            <td>4</td>
-                            <td>2</td>
-                            <td>8</td>
-                            <td>4</td>
-                            <td>9</td>
-                            <td>5</td>
+                            <td>{{$permanentTreatments}}</td>
+                            <td>{{$chronicDiseases}}</td>
+                            <td>{{$HHB}}</td>
+                            <td>{{$LHB}}</td>
+                            <td>{{$highBlood}}</td>
+                            <td>{{$lowBlood}}</td>
                             <td>10</td>
-                            <td>639</td>
+                            <td>{{$count}}</td>
 
 
                     </tbody>
@@ -272,7 +272,7 @@
                     <thead>
                         <tr>
                             <th><span> العدد </span></th>
-                            <th><span> يستعمل مضادي حيوي</span></th>
+                            <th><span>  مضادي حيوي</span></th>
                             <th><span> قليل الوزن</span></th>
                             <th><span> العمر اقل من 18</span></th>
                             <th><span> خلع ضرس</span></th>
@@ -284,11 +284,11 @@
                     <tbody>
                         <tr>
                             <td>المجموع</td>
-                            <td style="text-align: center">4</td>
-                            <td style="text-align: center">2</td>
-                            <td style="text-align: center">8</td>
-                            <td style="text-align: center">4</td>
-                            <td style="text-align: center">693</td>
+                            <td style="text-align: center">{{$usesAntibiotics}}</td>
+                            <td style="text-align: center">{{$lowWeight}}</td>
+                            <td style="text-align: center">{{$lessThan18}}</td>
+                            <td style="text-align: center">{{$ToothExtraction}}</td>
+                            <td style="text-align: center">{{$count}}</td>
                       
 
 
