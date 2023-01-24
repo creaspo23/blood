@@ -14,21 +14,25 @@ class BloodWithdraw extends Model
         'bottle_number',
         'time',
         'status',
-        'notes'
+        'notes',
+        'faild',
     ];
 
-    public  static function boot(){
+    public  static function boot()
+    {
         parent::boot();
-        static::creating(function($model){
+        static::creating(function ($model) {
             $model->bottle_number = self::all()->max('bottle_number') + 1;
         });
     }
 
-    public function processable () {
+    public function processable()
+    {
         return $this->morphTo();
     }
 
-    public function employee () {
+    public function employee()
+    {
         return $this->belongsTo(Employee::class);
     }
 }

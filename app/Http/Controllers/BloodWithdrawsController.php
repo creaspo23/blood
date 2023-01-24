@@ -42,11 +42,16 @@ class BloodWithdrawsController extends Controller
         $processable = ProcessableServices::get($request);
 
         $processable->bloodWithdraw()->create(array_merge(['employee_id' => auth()->user()->employee->id], $request->validated()));
+        if ($request->faild == 1) {
+            $processable->bloodWithdraw()->update(['status' => 'فاسدة']);
+            return redirect()->back()->with(['error' => 'فشلت عمليه السحب']);
+
+        }
         if ($request->polycythemias_id) {
             $polycythemia = Polycythemia::findOrFail($request->polycythemias_id);
             $polycythemia->update(['status' => 'مكتمل']);
         }
-     
+
         return redirect()->back()->with(['success' => 'تمت العمليه بنجاح']);
     }
 }

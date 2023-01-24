@@ -163,8 +163,8 @@
             {{-- @endif --}}
             @if ($donation->status == 'ملغي' ||
                 $donation->status == 'مرفوض' ||
-                $donation->bloodWithdraw ||
-                $donation->doctorTest ||
+                $donation->bloodWithdraw||
+                $donation->doctorTest==null ||
                 $donation->viralTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">

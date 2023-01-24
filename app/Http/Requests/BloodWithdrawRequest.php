@@ -31,7 +31,8 @@ class BloodWithdrawRequest extends FormRequest
             'polycythemias_id'=>['exists:polycythemias,id',Rule::requiredIf(function () {return !$this->request->has('donation_id') && !$this->request->has('order_id') && !$this->request->has('kid_id') ;})],
             'kid_id'=>['exists:kid,id',Rule::requiredIf(function () {return !$this->request->has('donation_id') && !$this->request->has('order_id')&& !$this->request->has('polycythemias_id') ;})],
             'time' => ['required', 'numeric'],
-            'notes' => ['nullable', 'string']
+            'notes' => ['nullable', 'string'],
+            'faild'=>'nullable',
         ];
     }
 }

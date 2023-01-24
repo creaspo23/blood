@@ -156,7 +156,7 @@
                         @if($type == 'kid')
                         <input type="hidden" name="kid_id" value="{{$case->id}}">
                     @endif
-                                <input type="hidden" name="failed" value="0">
+                                <input type="hidden" name="faild" value="0" id="faild">
                                 <button type="submit" class=" btn btn-primary btn-block">نجح السحب</button>
                                 <button type="submit" onclick="failed()" class=" btn btn-danger btn-block">فشل
                                     السحب</button>
@@ -172,4 +172,9 @@
     @section('script')
         <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
         <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
+        <script>
+            function failed(){
+                let b=document.getElementById("faild").value = "1";
+            }
+        </script>
     @endsection

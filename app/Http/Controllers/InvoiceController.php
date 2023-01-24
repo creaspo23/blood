@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BloodTest;
+use App\Models\BloodWithdraw;
 use App\Models\DoctorTest;
 use App\Models\Donation;
 use App\Models\Order;
@@ -109,12 +110,13 @@ class InvoiceController extends Controller
             }
         }
         $donerCount = Donation::count();
+        $unCompleteWithDraw = BloodWithdraw::where('faild', 1)->count();
+        $Decent = BloodWithdraw::where('faild', 0)->count();
         $lowHemoglobin = BloodTest::where('HB', '<', 13)->count();
         $polcythemiaLowHemoglobin = Polycythemia::where('HB', '<', 13)->count();
         $lowHemoglobin = $lowHemoglobin + $polcythemiaLowHemoglobin;
         $ExclusionFromTheDoctor = DoctorTest::where('others', '!=', null)->count();
-        // $Decent=Donation::where
-        return view('invoices.doners-with-draw-invoice', compact('donerCount', 'lowHemoglobin', 'ExclusionFromTheDoctor', 'lowHemoglobin', 'HCV', 'HBV', 'HIV', 'SYPHILIS'));
+        return view('invoices.doners-with-draw-invoice', compact('donerCount', 'Decent', 'unCompleteWithDraw', 'lowHemoglobin', 'ExclusionFromTheDoctor', 'lowHemoglobin', 'HCV', 'HBV', 'HIV', 'SYPHILIS'));
     }
 
     public function ExclusionFromTheDoctor()
@@ -134,7 +136,6 @@ class InvoiceController extends Controller
         $count = DoctorTest::where('others', '=', null)->count();
         foreach ($doctorTests as $doctorTest) {
             $vals = json_decode($doctorTest);
-            dd($vals);
             foreach ($vals as $val) {
                 if ($val == 'علاجات مستديمه') {
                     $permanentTreatments++;
@@ -175,7 +176,7 @@ class InvoiceController extends Controller
 
     public function BloodDischarged()
     {
-
+        
         return view('invoices.BloodDischarged');
     }
 }

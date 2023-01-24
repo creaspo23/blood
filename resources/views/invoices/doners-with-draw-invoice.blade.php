@@ -265,8 +265,8 @@
                             <td style="text-align: center">{{$HBV}}</td>
                             <td style="text-align: center">{{$HIV}}</td>
                             <td style="text-align: center">{{$SYPHILIS}}</td>
-                            <td style="text-align: center">0</td>
-                            <td style="text-align: center">639</td>
+                            <td style="text-align: center">{{$unCompleteWithDraw}}</td>
+                            <td style="text-align: center">{{$Decent}}</td>
         
         
         
