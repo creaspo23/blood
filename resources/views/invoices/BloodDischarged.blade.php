@@ -253,15 +253,15 @@
                     <tbody>
                         <tr style="text-align: right">
                             <td>المجموع</td>
-                            <td>4</td>
-                            <td>2</td>
-                            <td>8</td>
-                            <td>4</td>
-                            <td>9</td>
-                            <td>5</td>
-                            <td>10</td>
-                            <td>9</td>
-                            <td>639</td>
+                            <td>{{$list['A+']}}</td>
+                            <td>{{$list['A-']}}</td>
+                            <td>{{$list['B+']}}</td>
+                            <td>{{$list['B-']}}</td>
+                            <td>{{$list["AB+"]}}</td>
+                            <td>{{$list['AB-']}}</td>
+                            <td>{{$list['O+']}}</td>
+                            <td>{{$list['O-']}}</td>
+                            <td>{{$count}}</td>
 
                     </tbody>
                 </table>
@@ -279,22 +279,18 @@
 
                     </thead>
                     <tbody style="text-align: right" >
+                        @foreach ($unitsList as $key => $item)
+                            
                         <tr style="text-align: right" >
-                            <td>الطوارئ والإصابات</td>
-                            <td>198</td>
+                            <td>{{$key}}</td>
+                            <td>{{$item}}</td>
                         </tr>
+                        @endforeach
                         <tr>
-                            <td>العائلات</td>
-                            <td>180</td>
-                        </tr>
-                        <tr style="text-align: right">
-                            <td>2</td>
-                            <td>8</td>
-                        </tr>
-                        <tr style="text-align: right">
                             <td>المجموع</td>
-                            <td>88</td>
+                            <td>{{$unitCount}}</td>
                         </tr>
+                    
 
 
                     </tbody>
@@ -325,3 +321,4 @@
 </body>
 
 </html>
+

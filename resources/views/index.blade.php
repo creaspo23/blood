@@ -52,7 +52,7 @@
                         <div id="customers-chart"> </div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">600</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{\App\Models\Derivative::count()}}</span></h4>
                         <p class="text-muted mb-0">الخزنة</p>
                     </div>
 
@@ -68,7 +68,7 @@
                         <div id="growth-chart"></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">250</span></h4>
+                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">{{\App\Models\Exchange::count()}}</span></h4>
                         <p class="text-muted mb-0">المنصرف</p>
                     </div>
 
