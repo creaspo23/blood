@@ -176,7 +176,117 @@ class InvoiceController extends Controller
 
     public function BloodDischarged()
     {
-        
-        return view('invoices.BloodDischarged');
+        $list = ['A+' => 0, 'A-' => 0, 'B+' => 0, 'B-' => 0, 'AB+' => 0, 'AB-' => 0, 'O+' => 0, 'O-' => 0];
+        $unitsList = ['العناية المكثفة' => 0, 'العناية الحثيثة' => 0, 'الطوارئ' => 0, 'الولادة' => 0, 'الجراحة' => 0, 'الباطنية' => 0, 'الاطفال' => 0, 'النفسية' => 0, 'الشمالي' => 0, 'الغربي' => 0, 'الكلى' => 0, 'العظام' => 0, 'المسالك البولية' => 0, 'امراض الدم' => 0, 'الجلدية' => 0, 'الاذن والانف والحنجرة' => 0, 'اسر الضباط' => 0, 'جناح الضباط' => 0];
+        $count = 0;
+        $unitCount=0;
+
+        $orderIds = DB::table('exchanges')->where('type', 'داخلي')->pluck('order_id');
+
+        foreach ($orderIds as $orderId) {
+            $order = Order::where('id', $orderId)->first();
+            if ($order->person->blood_group == "A+") {
+                $list['A+']++;
+                $count++;
+            } elseif ($order->person->blood_group == "A-") {
+                $list['A-']++;
+                $count++;
+            } elseif ($order->person->blood_group == "B+") {
+                $list['B+']++;
+                $count++;
+            } elseif ($order->person->blood_group == "B-") {
+                $list['B-']++;
+                $count++;
+            } elseif ($order->person->blood_group == "AB-") {
+                $list['AB-']++;
+                $count++;
+            } elseif ($order->person->blood_group == "AB+") {
+                $list['AB+']++;
+                $count++;
+            } elseif ($order->person->blood_group == "O-") {
+                $list['O-']++;
+                $count++;
+            } elseif ($order->person->blood_group == "O+") {
+                $list['O+']++;
+                $count++;
+            }
+        }
+        foreach ($orderIds as $orderId) {
+            $order = Order::where('id', $orderId)->first();
+            if ($order->unit == 'العناية المكثفة') {
+                $unitsList['العناية المكثفة']++;
+                $unitCount++;
+            } elseif ($order->unit == 'العناية الحثيثة') {
+                $unitsList['العناية الحثيثة']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الطوارئ') {
+                $unitsList['الطوارئ']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الولادة') {
+                $unitsList['الولادة']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الجراحة') {
+                $unitsList['الجراحة']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الباطنية') {
+                $unitsList['الباطنية']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الاطفال') {
+                $unitsList['الاطفال']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'النفسية') {
+                $unitsList['النفسية']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الشمالي') {
+                $unitsList['الشمالي']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الغربي') {
+                $unitsList['الغربي']++;
+                $unitCount++;
+
+            } elseif ($order->unit == "الكلى") {
+                $unitsList['الكلى']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'العظام') {
+                $unitsList['العظام']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'المسالك البولية') {
+                $unitsList['المسالك البولية']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'امراض الدم') {
+                $unitsList['امراض الدم']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الجلدية') {
+                $unitsList['الجلدية']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'الاذن والانف والحنجرة') {
+                $unitsList['الاذن والانف والحنجرة']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'اسر الضباط') {
+                $unitsList['اسر الضباط']++;
+                $unitCount++;
+
+            } elseif ($order->unit == 'جناح الضباط') {
+                $unitsList['جناح الضباط']++;
+                $unitCount++;
+
+            }
+        }
+               
+        return view('invoices.BloodDischarged', compact('list', 'count','unitsList','unitCount'));
     }
 }
