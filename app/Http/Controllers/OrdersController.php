@@ -18,7 +18,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['person'])->get();
+        $orders = Order::with(['person'])->orderBy('created_at', 'desc')->get();
         $test = [
             'bloodTest',
             'doctorTest',

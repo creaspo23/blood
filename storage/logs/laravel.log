@@ -22746,3 +22746,51 @@ Stack trace:
 #55 /home/walieldin-nctr/Desktop/new blood/server.php(21): require_once('...')
 #56 {main}
 "} 
+[2023-02-02 09:40:23] local.ERROR: There are no commands defined in the "conig" namespace.
+
+Did you mean this?
+    config {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"conig\" namespace.
+
+Did you mean this?
+    config at /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php:650)
+[stacktrace]
+#0 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(701): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(259): Symfony\\Component\\Console\\Application->find()
+#2 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Console/Application.php(94): Symfony\\Component\\Console\\Application->run()
+#4 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /home/walieldin-nctr/Desktop/new blood/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 
+[2023-02-02 09:40:32] local.ERROR: There are no commands defined in the "cofig" namespace.
+
+Did you mean this?
+    config {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"cofig\" namespace.
+
+Did you mean this?
+    config at /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php:650)
+[stacktrace]
+#0 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(701): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(259): Symfony\\Component\\Console\\Application->find()
+#2 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Console/Application.php(94): Symfony\\Component\\Console\\Application->run()
+#4 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /home/walieldin-nctr/Desktop/new blood/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 
+[2023-02-02 09:40:46] local.ERROR: There are no commands defined in the "cofing" namespace.
+
+Did you mean this?
+    config {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"cofing\" namespace.
+
+Did you mean this?
+    config at /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php:650)
+[stacktrace]
+#0 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(701): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(259): Symfony\\Component\\Console\\Application->find()
+#2 /home/walieldin-nctr/Desktop/new blood/vendor/symfony/console/Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Console/Application.php(94): Symfony\\Component\\Console\\Application->run()
+#4 /home/walieldin-nctr/Desktop/new blood/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#5 /home/walieldin-nctr/Desktop/new blood/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 
