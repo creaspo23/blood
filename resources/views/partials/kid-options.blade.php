@@ -59,9 +59,10 @@
                             <div class="mb-3">
                                 <label for="result">{{ __('ICT-Test') }}</label>
                                 <select name="result" class="form-control">
-                                    <option value="نعم">نعم</option>
-                                    <option value="لا">لا</option>
+                                    <option value="postive">postive</option>
+                                    <option value="negative">negative</option>
                                 </select>
+       
                                 
 
                             </div><!-- /.modal-content -->
@@ -96,8 +97,8 @@
                             <div class="mb-3">
                                 <label for="result">{{ __('DCT-Test') }}</label>
                                 <select name="result" class="form-control">
-                                    <option value="نعم">نعم</option>
-                                    <option value="لا">لا</option>
+                                    <option value="postive">postive</option>
+                                    <option value="negative">negative</option>
                                 </select>
                                 
 
