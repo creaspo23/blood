@@ -32,6 +32,11 @@
             href="#" data-bs-toggle="modal"class="align-middle"
                data-bs-target="#myModal-block-DCT-{{ $kid->id }}">
                {{ __('فحص ال DCT ') }} </a>
+
+               <a class="dropdown-item" href="{{ route('kidInvoice', $kid->id) }}"> <span class="align-middle">
+                طباعه </span>
+        </a>
+               
     </div>
 </div>
 
