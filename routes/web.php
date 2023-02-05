@@ -21,6 +21,8 @@ use App\Http\Controllers\KidsController;
 use App\Http\Controllers\InvestigationsController;
 use App\Http\Controllers\PolcythemiasController;
 use App\Http\Controllers\InvoiceController;
+use Illuminate\Support\Facades\Artisan;
+
 // use App\Http\Controllers\PatientsController;
 // use NunoMaduro\Collision\Adapters\Phpunit\State;
 
@@ -45,7 +47,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 
 //Language Translation
+Route::get('clear_cache', function () {
 
+    Artisan::call('config:cache');
+
+    dd("Cache is cleared");
+
+});
+
+Route::group(['middleware' => 'auth'], function () {
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
 Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit');
@@ -100,3 +110,4 @@ Route::post('dct', [DCTTestController::class, 'store'])->name('dct');
 
 Route::get('bottles', [DerivativesController::class, 'bottles'])->name('bottles');
 Route::get('derivatives/{id}', [DerivativesController::class, 'create']);
+});
