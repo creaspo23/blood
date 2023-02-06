@@ -32,6 +32,11 @@
             href="#" data-bs-toggle="modal"class="align-middle"
                data-bs-target="#myModal-block-DCT-{{ $kid->id }}">
                {{ __('فحص ال DCT ') }} </a>
+
+               <a class="dropdown-item" href="{{ route('kidInvoice', $kid->id) }}"> <span class="align-middle">
+                طباعه </span>
+        </a>
+               
     </div>
 </div>
 
@@ -54,9 +59,10 @@
                             <div class="mb-3">
                                 <label for="result">{{ __('ICT-Test') }}</label>
                                 <select name="result" class="form-control">
-                                    <option value="نعم">نعم</option>
-                                    <option value="لا">لا</option>
+                                    <option value="postive">postive</option>
+                                    <option value="negative">negative</option>
                                 </select>
+       
                                 
 
                             </div><!-- /.modal-content -->
@@ -91,8 +97,8 @@
                             <div class="mb-3">
                                 <label for="result">{{ __('DCT-Test') }}</label>
                                 <select name="result" class="form-control">
-                                    <option value="نعم">نعم</option>
-                                    <option value="لا">لا</option>
+                                    <option value="postive">postive</option>
+                                    <option value="negative">negative</option>
                                 </select>
                                 
 

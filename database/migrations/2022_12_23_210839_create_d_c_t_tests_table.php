@@ -17,7 +17,7 @@ class CreateDCTTestsTable extends Migration
             $table->id();
             $table->foreignId('kid_id')->references('id')->on('kid');
             $table->foreignId('employee_id');
-            $table->enum('result',['نعم','لا']);
+            $table->enum('result',['postive','negative']);
             $table->timestamps();
         });
     }
