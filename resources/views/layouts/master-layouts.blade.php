@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     @include('layouts.title-meta')
@@ -33,10 +33,10 @@
     <!-- END wrapper -->
 
     <!-- Right Sidebar -->
-    {{-- @include('layouts.right-sidebar') --}}
+    <!-- {{-- @include('layouts.right-sidebar') --}} -->
     <!-- END Right Sidebar -->
 
-    @include('layouts.vendor-scripts')
+    <!-- @include('layouts.vendor-scripts') -->
 </body>
 
 </html>

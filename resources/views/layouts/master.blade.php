@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     @include('layouts.title-meta')
@@ -33,7 +33,7 @@
     <!-- END layout-wrapper -->
 
     <!-- Right Sidebar -->
-    @include('layouts.right-sidebar')
+    <!-- @include('layouts.right-sidebar') -->
     <!-- /Right-bar -->
 
     <!-- JAVASCRIPT -->
