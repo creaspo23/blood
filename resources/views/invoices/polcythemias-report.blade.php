@@ -140,25 +140,19 @@
 
 <body>
     <div class="invoice-box">
-        <table>
-            <tr style="text-align: right">
-                <td>
-                    التاريخ: {{ now()->format('Y-m-d') }}
-        </table>
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
-                    <table>
+                <table>
                         <tr>
-                            <img src="{{ asset('/assets/images/new.jpeg') }}"
-                                style=" margin:left; display: flex;
-                                    justify-content:flex-start;  max-width: 180px" />
+                            <td width="35%">General Staff headquarte<br>department medical Service <br>Laboratory department<br>Central Blood Bank<br>No : M/D/M<br>DATE : {{ now()->format('Y-m-d') }}</td>
+                             <td> <img src="{{ asset('/assets/images/new.jpeg') }}"
+                                style="
+                                    justify-content:flex-start;  max-width: 180px" /></td>
+                            <td width="35%" style="padding-left:90px">الادارة العامة للخدمات الطبية<br>ادارة الطب العلاجي/شعبة المعامل<br>مصرف الدم المركزي<br>نمرة : م / د / م<br> التاريخ: {{ now()->format('Y-m-d') }}</td>
+                                    
                         </tr>
-                        <tr style="margin:right">
-                            {{-- <span style="font-weight: bold; font-size: 20px;">استبعاد من الطبيب </span>  --}}
-
-                        </tr>
-                    </table>
+                </table>
                 </td>
             </tr>
 

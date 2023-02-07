@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Polycythemia;
 use App\Models\ViralTest;
 use PDF;
+use DB;
 
 class InvoiceController extends Controller
 {
