@@ -48,6 +48,6 @@ class ViralDiseasesController extends Controller
     {
         $disease = ViralDisease::findOrFail($id);
         $disease->delete($id);
-        return redirect()->back()->with(['success' => 'تمت العملية بنجاح']);
+        return redirect()->back()->with(['error' => 'تمت العملية بنجاح']);
     }
 }

@@ -127,8 +127,8 @@
                                     <th>الاسم</th>
                                     <th>الوحدة</th>
                                     <th>الفصيلة </th>
-                                    <th>النوع </th>
-                                    <th>الكمية </th>
+                                    {{-- <th>النوع </th>
+                                    <th>الكمية </th> --}}
                                     <th>تاريخ الطلب</th>
                                     <th>الحالة</th>
                                     <th>الخيارات</th>
@@ -141,7 +141,7 @@
                                         <td>{{ $donation->person->name ?? '' }}</td>
                                         <td>{{ $donation->order->unit ?? '' }}</td>
                                         <td>{{ $donation->order->person->blood_group ?? '' }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @if (is_array($donation->order) || is_object($donation->order))
                                             @foreach ($donation->order as $order)
                                                 {{ $order->bloods->blood_type ?? '' }}
@@ -155,7 +155,7 @@
                                                     {{ $order->bloods->quantity ?? '' }}
                                                 @endforeach
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>{{ $donation->order->created_at ?? '' }}</td>
                                         <td>
                                             @if ($donation->status == 'الانتظار')
@@ -194,6 +194,8 @@
             $('#myTable').DataTable({
                 responsive: true,
                 autoWidth: false,
+                order: [ [0, 'desc'] ]
+
 
             });
 

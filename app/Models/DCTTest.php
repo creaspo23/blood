@@ -11,9 +11,8 @@ class DCTTest extends Model
 
     protected $fillable = [
         'kid_id',
-        'type',
         'employee_id',
-        'status'
+        'result'
     ];
     public function kdi()
     {
