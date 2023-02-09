@@ -140,31 +140,47 @@
 
 
 <body>
-    <div class="invoice-box">
-        <h1 style="text-align: center">تقرير طلب الدم</h1>
-
-        <table>
-            <tr style="text-align: right">
-                {{-- <td>
-                    <span style="font-weight: bold; font-size: 20px;">تقرير طلب الدم</span> <br />
-                    <span style="font-weight: bold; font-size: 15px;">رقم الطلب# {{ $kid->id }}</span> <br />
-                    <span style="font-weight: bold; font-size: 10px;">تاريخ الطلب:
-                        {{ $kid->created_at->format('y-m-d') }}</span>
-                </td> --}}
-            </tr>
-        </table>
+<div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
-                    <table>
+                <table>
                         <tr>
-                            <img src="{{ asset('/assets/images/new.jpeg') }}"
-                                style=" margin:left; display: flex;
-                                justify-content:flex-start;  max-width: 180px" />
+                            <td width="35%">General Staff headquarte<br>department medical Service <br>Laboratory department<br>Central Blood Bank<br>No : M/D/M<br>DATE : {{ now()->format('Y-m-d') }}</td>
+                             <td> <img src="{{ asset('/assets/images/new.jpeg') }}"
+                                style="
+                                    justify-content:flex-start;  max-width: 180px" /></td>
+                            <td width="35%" style="padding-left:90px">الادارة العامة للخدمات الطبية<br>ادارة الطب العلاجي/شعبة المعامل<br>مصرف الدم المركزي<br>نمرة : م / د / م<br> التاريخ: {{ now()->format('Y-m-d') }}</td>
+                                    
                         </tr>
                     </table>
                 </td>
             </tr>
+
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td dir>
+                                {{-- {{$order->customer->name}}<br />
+									{{$order->customer->user->phone}} <br />
+                                    {{$order->address}} <br />
+									{{$address}} <br />
+									@if ($delivery['status'] != 0)
+									{{ $delivery['data']['ref_no'] }}
+									@endif --}}
+                            </td>
+
+                            {{-- <td style="text-align: right">
+									<span style="font-size: 15px;">Order No:</span> <span style="font-weight: bold;">#{{$order->id}}</span><br />
+									<span style="font-size: 15px;">Order Date :</span> <span style="font-weight: bold;"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($order->created_at))->format('d-m-Y')}}</span><br />
+									<span style="font-size: 15px;">Shipping Method:</span> <span style="font-weight: bold;">Reguler</span><br />
+								</td> --}}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
 
             <tr class="information">
                 <td colspan="2">

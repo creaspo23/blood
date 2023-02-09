@@ -13,7 +13,6 @@ use App\Models\Polycythemia;
 use App\Models\ViralTest;
 use Illuminate\Support\Facades\DB;
 use PDF;
-use DB;
 
 class InvoiceController extends Controller
 {

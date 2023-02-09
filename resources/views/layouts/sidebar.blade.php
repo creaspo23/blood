@@ -265,12 +265,7 @@
                                 <span>
                                     تقرير عدم السحب </span></a>
                         </li>
-                        <li>
-                            <a href="{{ route('donatios-check') }}">
-                                <i class="uil-home-alt"></i>
-                                <span>
-                                    تقرير فحوصات المتبرعين </span></a>
-                        </li>
+               
                         <li>
                             <a href="{{ route('polcythemiasrReport') }}">
                                 <i class="uil-home-alt"></i>
