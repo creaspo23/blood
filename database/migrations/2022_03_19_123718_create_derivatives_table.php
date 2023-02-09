@@ -19,7 +19,7 @@ class CreateDerivativesTable extends Migration
             $table->foreignId('employee_id');
             $table->string('bottle_number');
             $table->set('blood_type', ['الدم الاحمر', 'الدم الكامل', 'الصفائح', 'البلازما', 'الراسب المتجمد']);
-            $table->date('expire_date');
+            $table->date('expire_date')->nullable();
             $table->boolean('exchanged')->default(0);
             $table->timestamps();
         });
