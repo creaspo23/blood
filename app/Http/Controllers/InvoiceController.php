@@ -6,6 +6,7 @@ use App\Models\BloodTest;
 use App\Models\BloodWithdraw;
 use App\Models\DoctorTest;
 use App\Models\Donation;
+use App\Models\Investigation;
 use App\Models\Kid;
 use App\Models\Order;
 use App\Models\Polycythemia;
@@ -277,9 +278,19 @@ class InvoiceController extends Controller
 
     public function kidInvoice($id)
     {
-        $kid = Kid::with(['person', 'bloodTest','motherBloodTest','ictTest','dctTest'])->find($id);
-        
+        $kid = Kid::with(['person', 'bloodTest', 'motherBloodTest', 'ictTest', 'dctTest'])->find($id);
+
         $barcode = (string)$kid->id;
-        return view('invoices.kidInvoice', compact('kid','barcode'));
+        return view('invoices.kidInvoice', compact('kid', 'barcode'));
+    }
+
+    public function investigationsInvoice($id)
+    {
+        $investigation = Investigation::find($id)->whereHas('tests', function ($query) {
+            $query->whereNotNull('result');
+        })->first();
+
+        // dd($investigation);
+        return view('invoices.investigationInvoice', compact('investigation'));
     }
 }

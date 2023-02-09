@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
                                 <h4 class="card-title" style="text-align: center">
-                                    طلبات الدم
+                                    سحل الدم
                                 </h4>
 
                             </div>

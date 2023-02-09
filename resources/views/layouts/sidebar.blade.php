@@ -139,17 +139,36 @@
                     </ul>
                 </li>
 
-
                 <li>
-                    <a href="{{ route('investigations.create') }}">
-                        <i class="uil-microscope"></i>
-                        <span>
-                            الفحوصات الاخرى
+
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-social-distancing"></i>
+                        <span> الفحوصات الاخرى
+
                         </span>
                     </a>
-                </li>
-                <li>
+                    <ul>
+                        <li>
+                            <a href="{{ route('investigations.create') }}">
+                                <i class="uil-user"></i>
+                                <span>
+                                    عمل فحص
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('investigations.index') }}">
+                                <i class="uil-files-landscapes-alt"></i>
+                                <span>
+                                    سجل الفحوصات
+                                </span>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
                         <span>
@@ -256,10 +275,10 @@
                             <a href="{{ route('polcythemiasrReport') }}">
                                 <i class="uil-home-alt"></i>
                                 <span>
-                                    تقرير مرضي زياده الدم  </span></a>
+                                    تقرير مرضي زياده الدم </span></a>
                         </li>
-                        
-                        
+
+
                     </ul>
                 </li>
 

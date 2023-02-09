@@ -19,7 +19,7 @@ class CreateInvestigationsTable extends Migration
             $table->string('unit')->nullable();
             $table->string('diagnosis')->nullable();
             $table->enum('type', ['اقتصادي', 'تامين']);
-            $table->set('status', ['الانتظار', 'مكتمل', 'ملغتي'])->default('الانتظار');
+            $table->set('status', ['الانتظار', 'مكتمل', 'ملغي'])->default('الانتظار');
             $table->timestamps();
         });
     }
