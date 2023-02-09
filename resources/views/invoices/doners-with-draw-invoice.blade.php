@@ -140,19 +140,17 @@
 
 <body>
     <div class="invoice-box">
-        <table>
-            <tr style="text-align: right">
-                <td>
-                    التاريخ: {{ now()->format('Y-m-d') }}
-        </table>
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
-                    <table>
+                <table>
                         <tr>
-                            <img src="{{ asset('/assets/images/new.jpeg') }}"
-                            style=" margin:left; display: flex;
-                                justify-content:flex-start;  max-width: 180px" />
+                            <td width="35%">General Staff headquarte<br>department medical Service <br>Laboratory department<br>Central Blood Bank<br>No : M/D/M<br>DATE : {{ now()->format('Y-m-d') }}</td>
+                             <td> <img src="{{ asset('/assets/images/new.jpeg') }}"
+                                style="
+                                    justify-content:flex-start;  max-width: 180px" /></td>
+                            <td width="35%" style="padding-left:90px">الادارة العامة للخدمات الطبية<br>ادارة الطب العلاجي/شعبة المعامل<br>مصرف الدم المركزي<br>نمرة : م / د / م<br> التاريخ: {{ now()->format('Y-m-d') }}</td>
+                                    
                         </tr>
                     </table>
                 </td>
@@ -163,7 +161,6 @@
                     <table>
                         <tr>
                             <td dir>
-                                {{-- <span style="font-weight: bold; font-size: 20px; text-align:"> : عدد المتبرعين الذين لم يسحب منهم لأسباب</span> <br /> --}}
                                 {{-- {{$order->customer->name}}<br />
 									{{$order->customer->user->phone}} <br />
                                     {{$order->address}} <br />
@@ -183,51 +180,8 @@
                 </td>
             </tr>
         </table>
-        {{-- <table>
-
-				<tr class="heading">
-					<td>ID</td>
-					<td>image</td>
-					<td>SKU</td>
-					<td>Item</td>
-					<td>options</td>
-					<td>Quantity</td>
-					<td>Price</td>
-					<td>Total</td>
-				</tr>
-                @foreach ($order->products as $product)
-				<tr class="item">
-					<td>{{$loop->index + 1}}</td>
-					<td><img src="{{asset($product->product ? $product->product->first : '')}}" alt=""
-                        style="width:2em; height:2em;" ></td>
-					<td>{{$product->sku}}</td>
-					<td>{{$product->product->name}}</td>
-					<td>                      
-						@forelse(\App\Models\Product::getOptions($order->id,$product->product->id) as $op)
-						@if ($op->name)
-						@if (app()->getLocale() == 'en')
-							<div>{{ $op->en_name }} : {{ $op->en_option }} </div>
-						@else 
-							<div>{{ $op->name }} : {{ $op->option }} </div>
-						@endif
-						@else
-						{{ __('body.no_options') }}
-						@endif
-						@empty
-						{{ __('body.no_options') }}
-						
-						@endforelse
-					</td>
-					<td>{{$product->quantity}}</td>
-					<td>{{$product->price}}</td>
-					<td>{{$product->price * $product->quantity}}</td>
-				</tr>
-                    
-                @endforeach
-            </table> --}}
-        <div>
-            <div id="wrapper" dir="rtl">
-                <h3 style="margin-bottom: 30px">عدد المتبرعين الذين لم يسحب منهم لأسباب:</h3>
+            <div id="wrapper">
+                <h3  dir="rtl" style="margin-bottom: 30px">عدد المتبرعين الذين لم يسحب منهم لأسباب:</h3>
         
                 <table id="keywords" cellspacing="0" cellpadding="0">
                     <thead>
@@ -276,7 +230,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        
 
         <table style="padding-top: 40px;">
             <tr>
