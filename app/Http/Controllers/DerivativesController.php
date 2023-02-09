@@ -8,7 +8,7 @@ use App\Models\Donation;
 
 class DerivativesController extends Controller
 {
-    
+
 
     public function create($id)
     {
@@ -36,19 +36,23 @@ class DerivativesController extends Controller
      */
     public function store(DerivativesRequest $request)
     {
+
         foreach ($request->bloods as $blood) {
+
             Derivative::updateOrCreate(
                 [
                     'blood_withdraw_id' => $request->blood_withdraw_id,
-                    'blood_type' => $blood
+                    'blood_type' => $blood['name']
                 ],
                 [
                     'blood_withdraw_id' => $request->blood_withdraw_id,
-                    'blood_type' => $blood,
-                    'employee_id' => auth()->user()->employee->id
+                    'blood_type' => $blood['name'],
+                    'employee_id' => auth()->user()->employee->id,
+                    'expire_date' => now()->addDays($blood['expire'])
                 ]
             );
         }
+
         return true;
     }
 }

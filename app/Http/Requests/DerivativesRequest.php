@@ -27,6 +27,7 @@ class DerivativesRequest extends FormRequest
         return [
             'blood_withdraw_id' => ['required', 'exists:blood_withdraws,id'],
             'bloods' => ['required', 'array'],
+            // 'expire_date' => ['required', 'array'],
         ];
     }
 }

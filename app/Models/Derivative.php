@@ -30,7 +30,7 @@ class Derivative extends Model
             ];
 
             $model->bottle_number = $letters[$model->blood_type] . '-' . BloodWithdraw::find($model->blood_withdraw_id)->bottle_number;
-            $model->expire_date = now()->addDays(35);
+            // $model->expire_date = now()->addDays(35);
         });
     }
 
