@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateInvestigationRequest;
 use App\Http\Services\InvestigationServices;
 use App\Http\Services\PeopleServices;
 use App\Models\Investigation;
+use Illuminate\Http\Request;
+// use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\DB;
 
 class InvestigationsController extends Controller
@@ -18,7 +20,12 @@ class InvestigationsController extends Controller
      */
     public function index()
     {
-        //
+        $investigations = Investigation::whereHas('tests', function ($query) {
+            $query->whereNotNull('created_at');
+        })->latest()->get();
+
+
+        return view('all-investigations', compact('investigations'));
     }
 
     /**
@@ -70,13 +77,23 @@ class InvestigationsController extends Controller
      */
     public function update(UpdateInvestigationRequest $request, Investigation $investigation)
     {
-        foreach ($request->results as $result) {
-            $investigation->tests()->where('id', $result['id'])->update([
-                'result' => $result['result'],
-                'mean' => $result['mean'],
+        // dd($request->all());
+
+        foreach ($request->results as $result => $value) {
+            $investigation->tests()->where('investigation_id', $request->id)->where('test', $result)->update([
+                'result' => $value,
+                // 'mean' => $result['mean'],
             ]);
         }
-        return true;
+        return redirect()->back()->with(['success' => 'تمت العملية بنجاح']);
     }
 
+
+    public function UpdateStatus(Request $request, $id)
+    {
+        //  dd('p');
+        $investigation = Investigation::find($id);
+        $investigation->update(['status' => $request->status]);
+        return redirect()->back()->with(['success' => 'تمت العملية بنجاح']);
+    }
 }
