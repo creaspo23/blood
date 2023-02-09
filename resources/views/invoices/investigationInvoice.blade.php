@@ -260,7 +260,7 @@
 
 
                             @foreach ($investigation->tests as $item)
-                                <td>
+                                <td >
                                     {{ $item->result }}
 
                                 </td>

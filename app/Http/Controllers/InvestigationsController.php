@@ -22,7 +22,8 @@ class InvestigationsController extends Controller
     {
         $investigations = Investigation::whereHas('tests', function ($query) {
             $query->whereNotNull('created_at');
-        })->get();
+        })->latest()->get();
+
 
         return view('all-investigations', compact('investigations'));
     }

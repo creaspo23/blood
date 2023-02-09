@@ -52,7 +52,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($investigations as  $investigation )
+                            @foreach ($investigations as $investigation)
                                 <tr>
                                     <td style="text-align: center">{{ $investigation->id }}</td>
                                     <td style="text-align: center">{{ $investigation->person->name ?? '' }}</td>
@@ -61,7 +61,8 @@
 
                                     <td style="text-align: center">{{ $investigation->type }}</td>
 
-                                    <td style="text-align: center">{{ $investigation->created_at ?? '' }}</td>
+                                    <td style="text-align: center">{{ $investigation->created_at->format('y-m-d') ?? '' }}
+                                    </td>
                                     <td style="text-align: center">
                                         @if ($investigation->status == 'الانتظار')
                                             <span class="badge bg-soft-warning" style="font-size:small ">الإنتظار</span>
@@ -75,19 +76,29 @@
                                             <span class="badge bg-soft-secondary" style="font-size:small ">ملغي</span>
                                         @endif
                                     </td>
-
                                     @foreach ($investigation->tests as $item)
-                                        
-                                    <td>
-                                        {{ $item->result }}
+                                    
+                                        <td>
+                                            {{ $item->result }}
 
-                                    </td>
+                                        </td>
                                     @endforeach
+
+                                    @if (count($investigation->tests) == 1)
+                                        <td></td>
+                                        <td></td>
+                                    @elseif(count($investigation->tests) == 2)
+                                        <td></td>
+                                    @elseif(count($investigation->tests) == 0)
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    @else
+                                    @endif
 
                                     <td>@include('partials.investigations-options')</td>
                                 </tr>
                             @endforeach
-
 
                         </tbody>
 
