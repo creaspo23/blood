@@ -102,11 +102,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('order-invoice/{id}', [InvoiceController::class, 'printOrder'])->name('print-order');
     Route::get('Polcythemias-invoice/{id}', [InvoiceController::class, 'printPolcythemias'])->name('printPolcythemias');
     Route::get('kid-invoice/{id}', [InvoiceController::class, 'kidInvoice'])->name('kidInvoice');
-    Route::get('investigations-invoice/{id}', [InvoiceController::class,'investigationsInvoice'])->name('investigationsInvoice'); //done
-    Route::put('investigationsStatus/{id}', [InvestigationsController::class,'updateStatus'])->name('investigationsStatus'); //done
+    Route::get('investigations-invoice/{id}', [InvoiceController::class, 'investigationsInvoice'])->name('investigationsInvoice'); //done
+    Route::put('investigationsStatus/{id}', [InvestigationsController::class, 'updateStatus'])->name('investigationsStatus'); //done
 
 
-
+    Route::get('filter', function () {
+        return view('layouts.filter');
+    })->name('filter');
 
     Route::post('ict', [ICTTestController::class, 'store'])->name('ict');
     Route::post('dct', [DCTTestController::class, 'store'])->name('dct');

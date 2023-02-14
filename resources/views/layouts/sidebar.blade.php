@@ -233,13 +233,19 @@
                 </li>
                 <li>
 
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-social-distancing"></i>
+                <li>
+                    {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
+                    <a href="{{ route('filter') }}">
+                        <i class="uil-file"></i>
+
                         <span>
                             التقارير
                         </span>
                     </a>
-                    <ul>
+                    {{-- @endif --}}
+
+                </li>
+                {{-- <ul>
 
                         <li>
                             <a href="{{ route('BloodDischarged') }}">
@@ -274,7 +280,7 @@
                         </li>
 
 
-                    </ul>
+                    </ul> --}}
                 </li>
 
             </ul>
