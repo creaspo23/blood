@@ -11,6 +11,7 @@ use App\Models\Kid;
 use App\Models\Order;
 use App\Models\Polycythemia;
 use App\Models\ViralTest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -30,9 +31,10 @@ class InvoiceController extends Controller
         // return $pdf->stream('document.pdf');
     }
 
-    public function viralDiseases()
+    public function viralDiseases(Request $request)
     {
-        $viralDiseases = ViralTest::where('result', '!=', null)->pluck('result');
+
+        $viralDiseases = ViralTest::where('result', '!=', null)->whereBetween('created_at', [$request->form_date, $request->to_date])->pluck('result');
         $HCV = 0;
         $HBV = 0;
         $HIV = 0;
@@ -89,9 +91,9 @@ class InvoiceController extends Controller
         return view('invoices.Polcythemias-invoice', compact('polcythemia', 'barcode'));
     }
 
-    public function donersWithDraw()
+    public function donersWithDraw(Request $request)
     {
-        $viralDiseases = ViralTest::where('result', '!=', null)->pluck('result');
+        $viralDiseases = ViralTest::where('result', '!=', null)->whereBetween('created_at', [$request->form_date, $request->to_date])->pluck('result');
 
         $HCV = 0;
         $HBV = 0;
@@ -122,7 +124,7 @@ class InvoiceController extends Controller
         return view('invoices.doners-with-draw-invoice', compact('donerCount', 'Decent', 'unCompleteWithDraw', 'lowHemoglobin', 'ExclusionFromTheDoctor', 'lowHemoglobin', 'HCV', 'HBV', 'HIV', 'SYPHILIS'));
     }
 
-    public function ExclusionFromTheDoctor()
+    public function ExclusionFromTheDoctor(Request $request)
     {
         $permanentTreatments = 0;
         $chronicDiseases = 0;
@@ -135,7 +137,7 @@ class InvoiceController extends Controller
         $lowWeight = 0;
         $lessThan18 = 0;
         $ToothExtraction = 0;
-        $doctorTests = DoctorTest::where('others', '!=', null)->pluck('others');
+        $doctorTests = DoctorTest::where('others', '!=', null)->whereBetween('created_at', [$request->form_date, $request->to_date])->pluck('others');
         $count = DoctorTest::where('others', '=', null)->count();
         foreach ($doctorTests as $doctorTest) {
             $vals = json_decode($doctorTest);
@@ -168,23 +170,23 @@ class InvoiceController extends Controller
         return view('invoices.exclusion-from-the-doctor', compact('count', 'highBlood', 'lowBlood', 'ToothExtraction', 'lowWeight', 'permanentTreatments', 'chronicDiseases', 'HHB', 'LHB', 'others', 'lessThan18', 'usesAntibiotics'));
     }
 
-    public function polcythemiasrReport()
+    public function polcythemiasrReport(Request $request)
     {
-        $economyIn = Polycythemia::where('type', 'اقتصادي')->count();
-        $economyOut = Polycythemia::where('type', 'تامين')->count();
+        $economyIn = Polycythemia::where('type', 'اقتصادي')->whereBetween('created_at', [$request->form_date, $request->to_date])->count();
+        $economyOut = Polycythemia::where('type', 'تامين')->whereBetween('created_at', [$request->form_date, $request->to_date])->count();
         $economyInBYMonth = Polycythemia::where('type', 'اقتصادي')->whereMonth('created_at', now()->month)->count();
         $economyOutBYMonth = Polycythemia::where('type', 'تامين')->whereMonth('created_at', now()->month)->count();
         return view('invoices.polcythemias-report', compact('economyIn', 'economyOut', 'economyInBYMonth', 'economyOutBYMonth'));
     }
 
-    public function BloodDischarged()
+    public function BloodDischarged(Request $request)
     {
         $list = ['A+' => 0, 'A-' => 0, 'B+' => 0, 'B-' => 0, 'AB+' => 0, 'AB-' => 0, 'O+' => 0, 'O-' => 0];
         $unitsList = ['العناية المكثفة' => 0, 'العناية الحثيثة' => 0, 'الطوارئ' => 0, 'الولادة' => 0, 'الجراحة' => 0, 'الباطنية' => 0, 'الاطفال' => 0, 'النفسية' => 0, 'الشمالي' => 0, 'الغربي' => 0, 'الكلى' => 0, 'العظام' => 0, 'المسالك البولية' => 0, 'امراض الدم' => 0, 'الجلدية' => 0, 'الاذن والانف والحنجرة' => 0, 'اسر الضباط' => 0, 'جناح الضباط' => 0];
         $count = 0;
         $unitCount = 0;
 
-        $orderIds = DB::table('exchanges')->where('type', 'داخلي')->pluck('order_id');
+        $orderIds = DB::table('exchanges')->where('type', 'داخلي')->whereBetween('created_at', [$request->form_date, $request->to_date])->pluck('order_id');
 
         foreach ($orderIds as $orderId) {
             $order = Order::where('id', $orderId)->first();
