@@ -1,4 +1,8 @@
-<header id="page-topbar" style="margin-right: 0; margin-left: -228px">
+<header id="page-topbar" style="
+    margin-right: 0;
+    margin-left: -230px;
+    padding-left: 65px;
+">
     <div class="navbar-header">
         <div class="d-flex">
             <!-- LOGO -->
@@ -70,10 +74,10 @@
                     <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">{{Str::ucfirst(Auth::user()->name ?? '')}}</span>
                     <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                 </button>
-                <div class="dropdown-menu dropdown-menu-end">
+                <div class="dropdown-menu dropdown-menu-end" >
                     <!-- item-->
                     {{-- <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">@lang('translation.View_Profile')</span></a> --}}
-                    <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">تسجيل خروج</span></a>
+                    <a class="dropdown-item"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">تسجيل خروج</span></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
