@@ -35,4 +35,10 @@ class BloodWithdraw extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+
+    // public function directives()
+    // {
+    //     return $this->hasManyThrough(Derivative::class,Donation::class);
+    // }
+    
 }
