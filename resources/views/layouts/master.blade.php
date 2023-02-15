@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+
 
 <head>
     @include('layouts.title-meta')
@@ -12,13 +13,13 @@
     @show
 
     <!-- Begin page -->
-    <div id="layout-wrapper">
+    <div id="layout-wrapper" >
         @include('layouts.topbar')
         @include('layouts.sidebar')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
-        <div class="main-content">
+        <div class="main-content" style="margin-right: 250px;margin-left: 0px" >
             <div class="page-content">
                 <div class="container-fluid">
                     @yield('content')
@@ -33,7 +34,7 @@
     <!-- END layout-wrapper -->
 
     <!-- Right Sidebar -->
-    <!-- @include('layouts.right-sidebar') -->
+    {{-- <!-- @include('layouts.right-sidebar') --> --}}
     <!-- /Right-bar -->
 
     <!-- JAVASCRIPT -->

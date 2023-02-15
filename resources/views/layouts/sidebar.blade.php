@@ -25,7 +25,11 @@
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
-            <ul class="metismenu list-unstyled" id="side-menu">
+            <ul class="metismenu list-unstyled" id="side-menu"
+                style="
+            
+                padding-right: 0;
+                margin-right: 0;">
                 <li class="menu-title">القائمة</li>
                 {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
                 <li>
