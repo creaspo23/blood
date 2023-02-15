@@ -15,31 +15,44 @@ class Donation extends Model
         'status'
     ];
 
-    public function order () {
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
-    public function person () {
+    public function person()
+    {
         return $this->belongsTo(Person::class, 'person_id');
     }
 
-    public function rejection () {
+    public function rejection()
+    {
         return $this->hasOne(Rejection::class);
     }
 
-    public function bloodTest () {
+    public function bloodTest()
+    {
         return $this->morphOne(BloodTest::class, 'processable');
     }
 
-    public function doctorTest () {
+    public function doctorTest()
+    {
         return $this->morphOne(DoctorTest::class, 'processable');
     }
 
-    public function viralTest () {
+    public function viralTest()
+    {
         return $this->morphOne(ViralTest::class, 'processable');
     }
 
-    public function bloodWithdraw () {
+    public function bloodWithdraw()
+    {
         return $this->morphOne(BloodWithdraw::class, 'processable');
     }
+    public function homogeneites()
+    {
+        return $this->hasOne(Homogeneity::class, 'dontion_id');
+    }
+
+
 }

@@ -16,4 +16,6 @@ class Homogeneity extends Model
     {
         return $this->belongsTo(Person::class, 'person_id');
     }
+
+  
 }

@@ -19,10 +19,11 @@
                 <a class="dropdown-item" href="{{ url('/tests/' . $test[0] . '/' . $type . '/' . $donation->id) }}">
                     <span class="align-middle"> فحص الدم </span></a>
             @endif
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->doctorTest ||
-                $donation->bloodTest == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->doctorTest ||
+                    $donation->bloodTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         فحص الطبيب </span></a>
@@ -31,10 +32,11 @@
                     <span class="align-middle"> فحص الطبيب </span></a>
             @endif
             {{-- @if (auth()->user()->employee->unit == 'معمل السحب') --}}
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->bloodWithdraw ||
-                $donation->doctorTest == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->bloodWithdraw ||
+                    $donation->doctorTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         سحب الدم </span></a>
@@ -51,10 +53,11 @@
 
             {{-- @endif --}}
             {{-- @if (auth()->user()->employee->unit == 'معمل الفحص') --}}
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->viralTest ||
-                $donation->bloodWithdraw == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->viralTest ||
+                    $donation->bloodWithdraw == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         فحص الفيروسي </span></a>
@@ -64,7 +67,15 @@
             @endif
             {{-- @endif --}}
             {{-- @if (auth()->user()->employee->unit == 'معمل المشتقات') --}}
-            @if ($donation->status == 'ملغي' || $donation->status == 'مرفوض'|| $donation->viralTest==null ||$donation->bloodWithdraw == null)
+            @php
+                $x = \App\Models\Derivative::where('blood_withdraw_id', $donation->bloodWithdraw->id ?? null)->pluck('blood_withdraw_id');
+            @endphp
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->viralTest == null ||
+                    $donation->bloodWithdraw == null ||
+                    $x->contains($donation->bloodWithdraw->id))
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         المشتقات </span></a>
@@ -75,7 +86,13 @@
                         المشتقات </span></a>
             @endif
 
-            @if ($donation->status == 'ملغي' || $donation->status == 'مرفوض'||$donation->bloodWithdraw == null||$donation->viralTest==null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->bloodWithdraw == null ||
+                    $donation->viralTest == null ||
+                    $x->contains($donation->bloodWithdraw->id) == null ||
+                    $donation->homogeneites)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         التجانس </span></a>
@@ -127,10 +144,11 @@
                 <a class="dropdown-item" href="{{ url('/tests/' . $test[0] . '/' . $type . '/' . $donation->id) }}">
                     <span class="align-middle"> فحص الدم </span></a>
             @endif
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->doctorTest ||
-                $donation->bloodTest == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->doctorTest ||
+                    $donation->bloodTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         فحص الطبيب </span></a>
@@ -139,11 +157,12 @@
                     <span class="align-middle"> فحص الطبيب </span></a>
             @endif
             {{-- @if (auth()->user()->employee->unit == 'معمل السحب') --}}
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->viralTest ||
-                $donation->bloodWithdraw ||
-                $donation->doctorTest == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->viralTest ||
+                    $donation->bloodWithdraw ||
+                    $donation->doctorTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         فحص الفيروسي </span></a>
@@ -161,11 +180,12 @@
             {{-- @endif --}}
             {{-- @if (auth()->user()->employee->unit == 'معمل الفحص') --}}
             {{-- @endif --}}
-            @if ($donation->status == 'ملغي' ||
-                $donation->status == 'مرفوض' ||
-                $donation->bloodWithdraw||
-                $donation->doctorTest==null ||
-                $donation->viralTest == null)
+            @if (
+                $donation->status == 'ملغي' ||
+                    $donation->status == 'مرفوض' ||
+                    $donation->bloodWithdraw ||
+                    $donation->doctorTest == null ||
+                    $donation->viralTest == null)
                 <a class="dropdown-item" href="#" style="cursor: not-allowed;color: grey"> <span
                         class="align-middle">
                         سحب الدم </span></a>

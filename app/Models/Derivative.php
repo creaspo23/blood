@@ -45,4 +45,6 @@ class Derivative extends Model
     public function exchange () {
         return $this->hasOne(ExchangeBlood::class);
     }
+
+  
 }
