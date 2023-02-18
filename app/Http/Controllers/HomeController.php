@@ -10,6 +10,7 @@ use App\Models\ViralDisease;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -31,7 +32,32 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('index');
+        $list = ['A+' => 0, 'A-' => 0, 'B+' => 0, 'B-' => 0, 'AB+' => 0, 'AB-' => 0, 'O+' => 0, 'O-' => 0];
+
+
+        $orderIds = DB::table('exchanges')->where('type', 'داخلي')->pluck('order_id');
+
+        foreach ($orderIds as $orderId) {
+            $order = Order::where('id', $orderId)->first();
+            if ($order->person->blood_group == "A+") {
+                $list['A+']++;
+            } elseif ($order->person->blood_group == "A-") {
+                $list['A-']++;
+            } elseif ($order->person->blood_group == "B+") {
+                $list['B+']++;
+            } elseif ($order->person->blood_group == "B-") {
+                $list['B-']++;
+            } elseif ($order->person->blood_group == "AB-") {
+                $list['AB-']++;
+            } elseif ($order->person->blood_group == "AB+") {
+                $list['AB+']++;
+            } elseif ($order->person->blood_group == "O-") {
+                $list['O-']++;
+            } elseif ($order->person->blood_group == "O+") {
+                $list['O+']++;
+            }
+        }
+        return view('index', compact('list'));
     }
 
     public function getData($test, $type, $id)
@@ -69,8 +95,8 @@ class HomeController extends Controller
 
         if ($type == "mother") {
             $case = Kid::where('mother_id', $id)->with(['person', 'bloodTest', 'ictTest', 'dctTest'])->firstOrFail();
-        }                                
-                
+        }
+
 
         //                                
         // dd($case->person);
