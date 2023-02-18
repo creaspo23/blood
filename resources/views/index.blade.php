@@ -135,9 +135,10 @@
                     <h4 class="card-title mb-4">احصائيات فصائل الدم</h4>
 
 
+                    <input type="hidden" name="" id="list" value="{{json_encode($list,true)}}">
 
                     <div class="mt-3">
-                        <div id="sales-analytics-chart" class="apex-charts" dir="ltr"></div>
+                        <div id="sales-analytics-chart" class="apex-charts"   dir="ltr"></div>
                     </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
