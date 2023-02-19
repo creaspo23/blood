@@ -145,7 +145,7 @@
         </div> <!-- end col-->
     </div>
 
-
+{{-- 
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -328,18 +328,12 @@
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
         </div> <!-- end col-->
-        {{-- <button type="button" onclick="print">Print</button> --}}
-    </div>
+    </div> --}}
 @endsection
 @section('script')
     <script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
 
-    <script>
-        function print() {
-            // alert('p');
-            window.print();
-        }
-    </script>
+
 @endsection
