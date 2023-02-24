@@ -151,7 +151,7 @@
                                 style="
                                     justify-content:flex-start;  max-width: 180px" /></td>
                             <td width="35%" style="padding-left:90px">الادارة العامة للخدمات الطبية<br>ادارة الطب العلاجي/شعبة المعامل<br>مصرف الدم المركزي<br>نمرة : م / د / م<br> التاريخ: {{ now()->format('Y-m-d') }}</td>
-                                    
+
                         </tr>
                     </table>
                 </td>
@@ -190,7 +190,9 @@
                                 <span style="font-weight: bold; font-size: 20px;">بيانات الطفل</span> <br /><br />
                                 الأسم : {{ $kid->person->name }} <br />
                                 المستشفي : {{ $kid->hospital }}<br />
-                                تاريخ الميلاد : {{ $kid->person->birth_date }} <br />
+
+                                <span>العمر</span><br>
+                                {{ \Carbon\Carbon::parse($kid->person->birth_date)->diff(\Carbon\Carbon::now())->format('%y years and %m month')  }} <br />
 
                             </td>
 
