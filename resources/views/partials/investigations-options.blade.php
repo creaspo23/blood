@@ -1,9 +1,14 @@
+<style>
+    .lorem{
+        margin-right: -70px !important;
+    }
+</style>
 <div class="dropdown d-inline-block">
     <a type="button" class="btn btn-outline-primary" id="page-header-user-dropdown" data-bs-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         <i class="uil-ellipsis-v d-none d-xl-inline-block font-size-1"></i>
     </a>
-    <div class="dropdown-menu dropdown-menu-end">
+    <div class="dropdown-menu dropdown-menu-end lorem">
         <a class="dropdown-item" href="#" data-bs-toggle="modal"class="align-middle"
             data-bs-target="#myModal-block-DCT-{{ $investigation->id }}">
             {{ __('فحص ال investigation ') }} </a>
