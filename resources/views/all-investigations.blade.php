@@ -76,25 +76,46 @@
                                             <span class="badge bg-soft-secondary" style="font-size:small ">ملغي</span>
                                         @endif
                                     </td>
-                                    @foreach ($investigation->tests as $item)
+                                    @php
+                                        $AB_screening=$investigation->tests()->where('test','AB screening')->get();
+                                        $AB_identification=$investigation->tests()->where('test','AB identification')->get();
+                                        $AB_titration=$investigation->tests()->where('test','AB titration')->get();
+                                    @endphp
+                                    @foreach ($AB_screening as $item)
 
-                                        <td>
-                                            {{ $item->result }}
+                                            <td>
+                                                {{$item->result }}
 
-                                        </td>
+                                            </td>
+
+
+
+                                            @endforeach
+                                    @foreach ($AB_identification as $item)
+
+
+                                            <td>
+                                                {{$item->result }}
+
+                                            </td>
+
+
                                     @endforeach
+                                    @foreach ($AB_titration as $item)
 
-                                    @if (count($investigation->tests) == 1)
+
+                                            <td>
+                                                {{$item->result }}
+
+                                            </td>
+
+                                    @endforeach
+                                    @if(count($investigation->tests)==0)
                                         <td></td>
                                         <td></td>
-                                    @elseif(count($investigation->tests) == 2)
                                         <td></td>
-                                    @elseif(count($investigation->tests) == 0)
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    @else
                                     @endif
+
 
                                     <td>@include('partials.investigations-options')</td>
                                 </tr>

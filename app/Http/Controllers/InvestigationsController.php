@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateInvestigationRequest;
 use App\Http\Services\InvestigationServices;
 use App\Http\Services\PeopleServices;
 use App\Models\Investigation;
+use App\Models\InvestigationTest;
 use Illuminate\Http\Request;
 // use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,12 +21,12 @@ class InvestigationsController extends Controller
      */
     public function index()
     {
-        $investigations = Investigation::whereHas('tests', function ($query) {
-            $query->whereNotNull('created_at');
-        })->latest()->get();
+        $investigations = Investigation::latest()->get();
 
-
-        return view('all-investigations', compact('investigations'));
+        $tests=InvestigationTest::get(['test','result']);
+//        $AB_identification=$investigations->tests()->where('test','AB identification')->get();
+//        $AB_titration=$investigations->tests()->where('test','AB titration')->get();
+        return view('all-investigations', compact('investigations','tests'));
     }
 
     /**
