@@ -4,7 +4,6 @@
     @endsection4
 
 @section('css')
-    <!-- plugin css -->
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
@@ -165,7 +164,7 @@
                         <div class="row mt-2">
                             <label class="form-label col-lg-3"> fresh </label>
                             <div class="col-lg-9">
-                                <input type="checkbox" class="form-check" dir="rtl" name="hp" id="fresh">
+                                <input type="checkbox" class="form-check" dir="rtl" name="hp" id="fresh" onchange="(e)=>{lorem()}" >
                             </div>
                         </div>
 
@@ -262,6 +261,12 @@
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
 
     <script>
+        function lorem(e) {
+            console.log('lorem');
+
+        }
+
+
         $(function() {
             $("#name_menu").css({
                 'width': ($("#name").width() + 'px')

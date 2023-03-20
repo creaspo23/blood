@@ -115,4 +115,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('bottles', [DerivativesController::class, 'bottles'])->name('bottles');
     Route::get('derivatives/{id}', [DerivativesController::class, 'create']);
+
+
+
+});
+
+Route::get('/print',function (){
+    return view('print');
 });

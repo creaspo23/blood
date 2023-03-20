@@ -2,6 +2,7 @@
   var __webpack_exports__ = {};
   var list = document.getElementById("list").value;
   list = JSON.parse(list);
+
   let data1=list['A+'];
   let data2=list['B+'];
   let data3=list['AB+'];
