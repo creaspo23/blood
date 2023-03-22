@@ -152,7 +152,11 @@
                                     مدة الصلاحية
                                 </label>
 
-                                <input type="number" name="expire_date" class="form-control" id="date_full_blood">
+                                <select name="expire_date" id="date_full_blood" class="form-control form-select">
+                                    <option value="35">35 يوم </option>
+                                    <option value="42">  42 يوم</option>
+
+                                </select>
 
                             </div>
                         </div>
@@ -173,7 +177,11 @@
                                     مدة الصلاحية
                                 </label>
 
-                                <input type="number" name="expire_date" class="form-control" id="date_red_blood">
+                                <select name="expire_date" id="date_red_blood" class="form-control form-select">
+                                    <option value="35">35 يوم </option>
+                                    <option value="42">  42 يوم</option>
+
+                                </select>
 
                             </div>
 
@@ -196,7 +204,10 @@
                                     مدة الصلاحية
                                 </label>
 
-                                <input type="number" name="expire_date" class="form-control" id="date_plasma_blood">
+{{--                                <input type="number" name="expire_date" class="form-control" id="date_plasma_blood">--}}
+                                <select name="expire_date" id="date_plasma_blood" class="form-control form-select">
+                                    <option value="5">5 ايام </option>
+                                </select>
 
                             </div>
                         </div>
@@ -217,8 +228,12 @@
                                     مدة الصلاحية
                                 </label>
 
-                                <input type="number" name="expire_date" class="form-control" id="date_palates_blood">
+{{--                                <input type="number" name="expire_date" class="form-control" id="date_palates_blood">--}}
+                                <select name="expire_date" id="date_palates_blood" class="form-control form-select">
+                                    <option value="180"> 6 اشهر </option>
+                                    <option value="365">   سنه </option>
 
+                                </select>
                             </div>
                         </div>
 
@@ -238,8 +253,13 @@
                                     مدة الصلاحية
                                 </label>
 
-                                <input type="number" name="expire_date" class="form-control" id="date_frozen_blood">
+{{--                                <input type="number" name="expire_date" class="form-control" id="date_frozen_blood">--}}
 
+                                <select name="expire_date" id="date_frozen_blood" class="form-control form-select">
+                                    <option value="180"> 6 اشهر </option>
+                                    <option value="365">   سنه </option>
+
+                                </select>
                             </div>
                         </div>
 
