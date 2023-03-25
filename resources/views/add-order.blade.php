@@ -100,27 +100,7 @@
                             <span class="invalid-feedback" role="alert">
                             </span>
                         </div>
-                        {{-- <div class="row mt-2">
-                            <label class="orm-label col-lg-3">الفصيلة</label>
-                            <div class="col-lg-9">
-                                <select class="form-control select2 " dir="rtl" name="group" style="width: 100%">
-                                    <option>الكل</option>
-                                    <optgroup label="Positives">
-                                        <option>A+</option>
-                                        <option>B+</option>
-                                        <option>AB+</option>
-                                        <option>O+</option>
-                                    </optgroup>
-                                    <optgroup label="Negatives">
-                                        <option>A-</option>
-                                        <option>B-</option>
-                                        <option>AB-</option>
-                                        <option>O-</option>
-                                    </optgroup>
-                                </select>
-                            </div>
 
-                        </div> --}}
 
                         <div class="row mt-2">
                             <label class="form-label col-lg-3">المستشفى</label>
@@ -164,7 +144,7 @@
                         <div class="row mt-2">
                             <label class="form-label col-lg-3"> fresh </label>
                             <div class="col-lg-9">
-                                <input type="checkbox" class="form-check" dir="rtl" name="hp" id="fresh" onchange="(e)=>{lorem()}" >
+                                <input type="checkbox" class="form-check" dir="rtl" name="hp" id="fresh" >
                             </div>
                         </div>
 
@@ -261,10 +241,21 @@
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
 
     <script>
-        function lorem(e) {
-            console.log('lorem');
+            document.getElementById('fresh').addEventListener('click', function() {
+                var fresh = document.getElementById('fresh');
 
-        }
+                if (fresh.checked){
+                    document.getElementById('full_blood').checked=true;
+                  document.getElementById('full_blood_qt').disabled=false;
+            }
+                else{
+                    document.getElementById('full_blood').checked=false;
+                    document.getElementById('full_blood_qt').disabled=true;
+
+                }
+
+
+            });
 
 
         $(function() {
@@ -317,18 +308,18 @@
             }
         })
 
-        $('#fresh').on('change', function() {
-            $('#bloods :input:checkbox').prop('disabled', false);
-            if ($(this).is(':checked')) {
-                $('#bloods :input:checkbox').prop('checked', false);
-                $('#bloods :input').prop('disabled', true);
-
-                $('#bloods :input:checkbox:first').prop('checked', true);
-                $('#bloods :input:checkbox:first').prop('disabled', false);
-                $('#bloods :input:text:first').prop('checked', true);
-            }
-            $('#submit').prop('disabled', false);
-        })
+        // $('#fresh').on('change', function() {
+        //     $('#bloods :input:checkbox').prop('disabled', false);
+        //     if ($(this).is(':checked')) {
+        //         $('#bloods :input:checkbox').prop('checked', false);
+        //         $('#bloods :input').prop('disabled', true);
+        //
+        //         $('#bloods :input:checkbox:first').prop('checked', true);
+        //         $('#bloods :input:checkbox:first').prop('disabled', false);
+        //         $('#bloods :input:text:first').prop('checked', true);
+        //     }
+        //     $('#submit').prop('disabled', false);
+        // })
     </script>
 
     <script>
