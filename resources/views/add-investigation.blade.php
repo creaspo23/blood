@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="row mt-2">
-                                <label class="form-label col-lg-3"> تاريخ الميلاد </label>
+                                <label class="form-label col-lg-3">  العمر </label>
                                 <div class="col-lg-9">
                                     <input type="date" class="form-control" dir="rtl" name="birth_date" id="birth_date">
                                     <span class="invalid-feedback" role="alert">
@@ -179,7 +179,7 @@
                 'success': function (res) {
                     var names = ''
                     for (const element of res) {
-                  
+
                         var a = 'dd';
                        names += '<a class="dropdown-item" onclick="setItem( \' ' + element.name +'  \',  \'' + element.birth_date +'\',  \'' + element.gender +'\')">' + element.name + '</a>';
                     }

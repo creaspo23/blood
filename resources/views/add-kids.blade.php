@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="row mt-2">
-                            <label class="form-label col-lg-3"> تاريخ الميلاد </label>
+                            <label class="form-label col-lg-3">  العمر </label>
                             <div class="col-lg-9">
                                 <input type="hidden" name="gender" value="انثى">
                                 <input type="date" class="form-control @error('birth_date') is-invalid @enderror" dir="rtl" name="birth_date" id="birth_date">
